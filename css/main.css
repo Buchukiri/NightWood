@@ -5,7 +5,8 @@
 }
 
 :root {
-	--index: calc(1vw + 1vh)
+	--index: calc(1vw + 1vh);
+	--text: #FFFEBD;
 }
 
 @font-face {
@@ -82,7 +83,7 @@ body {
 	will-change: tranform;
 	text-transform: uppercase;
 	font-weight: 900;
-	color: #FFFEBD;
+	color: var(--text);
 	text-shadow: 0 0 15px #FFFEBD;
 }
 
@@ -99,5 +100,37 @@ body {
 }
 
 .main-article {
+	--main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
 	min-height: 100vh;
+	background-size: cover;
+	color: var(--text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	text-align: center;
+}
+
+.main-article__header {
+	text-transform: uppercase;
+	font-size: calc(var(--index) * 1.8);
+	letter-spacing: calc(var(--index) / 7.5);
+	transform: var(--main-article-transform);
+	will-change: transform;
+}
+
+.main-article__paragraph {
+	max-width: calc(var(--index) * 30);
+	font-size: calc(var(--index) * .9);
+	margin-top: calc(var(--index) / 1.25);
+	transform: var(--main-article-transform);
+	will-change: transform;
+}
+
+.copy {
+	position: absolute;
+	bottom: calc(var(--index) * 2.5);
+	opacity: 0.45;
+	font-size: var(--index) * .75;
+	letter-spacing: calc(var(--index) / 37.5);
 }
